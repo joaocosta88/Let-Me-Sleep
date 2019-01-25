@@ -1,0 +1,61 @@
+<!--
+ Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/settings" >
+
+    <CheckBoxPreference
+        android:key="alarm_in_silent_mode"
+        android:summary="@string/alarm_in_silent_mode_summary"
+        android:title="@string/alarm_in_silent_mode_title" />
+
+    <VolumePreference
+        android:dialogTitle="@string/alarm_volume_title"
+        android:persistent="false"
+        android:streamType="alarm"
+        android:summary="@string/alarm_volume_summary"
+        android:title="@string/alarm_volume_title" />
+
+    <ListPreference
+        android:defaultValue="10"
+        android:dialogTitle="@string/snooze_duration_title"
+        android:entries="@array/snooze_duration_entries"
+        android:entryValues="@array/snooze_duration_values"
+        android:key="snooze_duration"
+        android:title="@string/snooze_duration_title" />
+
+    <PreferenceScreen
+        android:key="do_not_disturb"
+        android:persistent="false"
+        android:title="@string/do_not_disturb" >
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="dnd_enabler"
+            android:summary="@string/dnd_summary"
+            android:title="@string/enable" />
+
+        <Preference
+            android:dependency="dnd_enabler"
+            android:key="dnd_start"
+            android:persistent="false"
+            android:title="@string/dnd_start" />
+        <Preference
+            android:dependency="dnd_enabler"
+            android:key="dnd_end"
+            android:persistent="false"
+            android:title="@string/dnd_end" />
+    </PreferenceScreen>
+
+</PreferenceScreen>
